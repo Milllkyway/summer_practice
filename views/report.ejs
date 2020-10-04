@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Приемная комиссия</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="/javascripts/alert.js"></script>            
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <% include menu.ejs %>
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="media research-item elem">
+                                <img src="/images/research.svg" width="25px" height="25px" class="align-self-center" >
+                                <img src="/images/pause.svg"  height="25px" class="align-self-center" style="margin-left:3px;">
+                                <div class="media-body" style="margin-left:10px;">Search student</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="login elem" style="text-align:center;">Log in</p>
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-md-12">
+                            <!-- report -->
+                            <div class="row elem main-body" id="rep-box">
+                                <div class="row">
+                                    <table class="table table-hover" style="margin: 50px;">
+                                        <thead style="background-color: #E5E5E5">
+                                            <tr>
+                                                <th scope="col">Факультет</th>
+                                                <th scope="col">Общее кол-во</th>
+                                                <th scope="col">[280, 300]</th>
+                                                <th scope="col">[250, 279]</th>
+                                                <th scope="col">[210, 249]</th>
+                                                <th scope="col">[0, 209]</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"> ФКТИ </th>
+                                                <td>
+                                                    <%= students.full[0] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade1[0] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade2[0] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade3[0] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade4[0] %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"> ФИБС </th>
+                                                <td>
+                                                    <%= students.full[1] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade1[1] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade2[1] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade3[1] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade4[1] %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"> ФЭЛ </th>
+                                                <td>
+                                                    <%= students.full[2] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade1[2] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade2[2] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade3[2] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade4[2] %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"> ФЭА </th>
+                                                <td>
+                                                    <%= students.full[3] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade1[3] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade2[3] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade3[3] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade4[3] %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"> ФРТ </th>
+                                                <td>
+                                                    <%= students.full[4] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade1[4] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade2[4] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade3[4] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade4[4] %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"> ГФ </th>
+                                                <td>
+                                                    <%= students.full[5] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade1[5] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade2[5] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade3[5] %>
+                                                </td>
+                                                <td>
+                                                    <%= students.grade4[5] %>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

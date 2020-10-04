@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Приемная комиссия</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="/javascripts/alert.js"></script>
+    
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <div class="container-fluid">
+        <div class="row">
+            <% include menu.ejs %>
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="media research-item elem">
+                                <img src="/images/research.svg" width="25px" height="25px" class="align-self-center" >
+                                <img src="/images/pause.svg"  height="25px" class="align-self-center" style="margin-left:3px;">
+                                <div class="media-body" style="margin-left:10px;">Search student</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="login elem" style="text-align:center;">Log in</p>
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-md-12">
+                            <!-- students -->
+                            <div class="row elem main-body" id="stud-box">
+                                <div class="row">
+                                    <button class="btn btn-outline-secondary btn-lg" onclick="openform('stud-create'); return false"> Add student </button>
+                                    <button class="btn btn-outline-secondary btn-lg" onclick="openform('stud-change'); return false"> Change student </button>
+                                    <button class="btn btn-outline-secondary btn-lg" onclick="openform('stud-delete'); return false"> Delete student </button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 elem my-form" id="stud-create" style="margin: 0px 35px;">
+                                        <form name="addStud" method="POST" action="/stud">
+                                            <select style="display:none" name="actType"><option>add</option></select>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="surname" placeholder="Фамилия">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="name" placeholder="Имя">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="midname" placeholder="Отчество">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="date" class="form-control" name="b_day">
+                                            </div>
+                                            <hr>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-4">
+                                                    <select class="form-control" name="facul">
+                                                        <option>Факультет</option>
+                                                        <option>1-ФКТИ</option>
+                                                        <option>2-ФИБС</option>
+                                                        <option>3-ФЭЛ</option>
+                                                        <option>4-ФЭА</option>
+                                                        <option>5-ФРТ</option>
+                                                        <option>6-ГФ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-8">
+                                                    <select class="form-control spec" name="specialty">
+                                                        <option>Направление</option>
+                                                        <option>1- Прикладная мат. и информ.</option>
+                                                        <option>1- Информ. и выч.техника</option>
+                                                        <option>1- Инф.системы и технологии</option>
+                                                        <option>1- Программная инженерия</option>
+                                                        <option>1- Сис.анализ и управление</option>
+                                                        <option>1- Управление в тех.сист.</option>
+                                                        <option>2- Приборостроение</option>
+                                                        <option>2- Биотех.системы и технолог.</option>
+                                                        <option>3- Электроника и наноэлектр.</option>
+                                                        <option>3- Нанотехн. и микросит.техн.</option>
+                                                        <option>4- Электроэнерг.и электротех.</option>
+                                                        <option>4- Мехатроника и робототех.</option>
+                                                        <option>4- Управление в тех.сист.</option>
+                                                        <option>5- Радиотехника</option>
+                                                        <option>5- Инфоком.техн. и сист.связи</option>
+                                                        <option>5- Констр. и технол. эл.ср-в</option>
+                                                        <option>6- Реклама и связь с общ.</option>
+                                                        <option>6- Лингвистика</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- <hr> -->
+                                            <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                    <select class="form-control" name="EGE1">
+                                                        <option>Русский язык</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <input type="number" class="form-control" name="mark1" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                    <select class="form-control" name="EGE2">
+                                                        <option>Экзамен 2</option>
+                                                        <option>Математика (п)</option>
+                                                        <option>Информатика</option>
+                                                        <option>Физика</option>
+                                                        <option>Обществознание</option>
+                                                        <option>Английский</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <input type="number" class="form-control" name="mark2" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                    <select class="form-control" name="EGE3">
+                                                        <option>Экзамен 3</option>
+                                                        <option>Математика (п)</option>
+                                                        <option>Информатика</option>
+                                                        <option>Физика</option>
+                                                        <option>Обществознание</option>
+                                                        <option>Английский</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <input type="number" class="form-control" name="mark3" placeholder="0">
+                                                </div>
+                                            </div>
+                                            <p style="text-align: center"><input class="btn btn-outline-secondary form-control" type="submit" placeholder="Отправить"></p>
+                                        </form>
+                                    </div>
+
+                                    <!-- Изменение-->
+                                    <div class="col-md-4 elem my-form" id="stud-change" style="display:none; margin: 15px 35px;">
+                                        <form name="editStud" method="POST" action="/stud">
+                                            <div class="form-group">
+                                                <select style="display:none" name="actType"><option>edit</option></select>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Фамилия" name="fsurname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Имя" name="fname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Отчество" name="fmidname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="ID" name="fid">
+                                                </div>
+                                                <hr>
+                                                <select class="form-control" onchange="changeStud(this.selectedIndex)" style="margin-bottom: 15px;" name="fchange">
+                                                    <option>Поле для изменения</option>
+                                                    <option>ФИО</option>
+                                                    <option>Дата рождения</option>
+                                                    <option>Результаты ЕГЭ</option>
+                                                </select>
+                                                <!-- Тут должны быть поля в зависимости от выбора пользователя -->
+                                                <div class="change">
+                                                    <div class="form-group" >
+                                                        <input type="text" class="form-control"  placeholder="Фамилия" name="surname">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="Имя" name="name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="Отчество" name="midname">
+                                                    </div>
+                                                </div>
+                                                <div class="change">
+                                                    <div class="form-group">
+                                                        <input type="date" class="form-control" name="b_day">
+                                                    </div>
+                                                </div>
+                                                <div class="change">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-8">
+                                                            <select class="form-control" id="EGE1">
+                                                                <option>Русский язык</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <input type="number" class="form-control" name="mark1" placeholder="0">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-8">
+                                                            <select class="form-control" id="EGE1">
+                                                                <option>Экзамен 2</option>
+                                                                <option>Математика (п)</option>
+                                                                <option>Русский язык</option>
+                                                                <option>Информатика</option>
+                                                                <option>Физика</option>
+                                                                <option>Обществознание</option>
+                                                                <option>Английский</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <input type="number" class="form-control" name="mark2" placeholder="0">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-8">
+                                                            <select class="form-control" id="EGE1">
+                                                                <option>Экзамен 3</option>
+                                                                <option>Математика (п)</option>
+                                                                <option>Русский язык</option>
+                                                                <option>Информатика</option>
+                                                                <option>Физика</option>
+                                                                <option>Обществознание</option>
+                                                                <option>Английский</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <input type="number" class="form-control" name="mark3" placeholder="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p style="text-align: center"><input class="btn btn-outline-secondary form-control" type="submit" placeholder="Отправить"></p>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-4 elem my-form" id="stud-delete" style="display:none; margin: 15px 35px;">
+                                        <form name="delStud" method="POST" action="/stud">
+                                            <select style="display:none" name="actType"><option>delete</option></select>
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Фамилия" name="fsurname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Имя" name="fname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Отчество" name="fmidname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="ID" name="fid">
+                                                </div>
+                                                <p style="text-align: center"><input class="btn btn-outline-secondary form-control" type="submit" placeholder="Отправить"></p>
+                                                <hr>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-7 my-table" style="height: 500px">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Фамилия</th>
+                                                    <th scope="col">Имя</th>
+                                                    <th scope="col">Отчество</th>
+                                                    <th scope="col">Д/р</th>
+                                                    <th scope="col">Факультет</th>
+                                                    <th scope="col">ЕГЭ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% students.forEach(function(student) { %>
+                                                    <tr>
+                                                        <th scope="row"> <%= student.id %> </th>
+                                                        <td>
+                                                            <%= student.surname %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.name %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.midname %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.b_day %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.facul %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.ege_full %>
+                                                        </td>
+                                                    </tr>
+                                                <% }); %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

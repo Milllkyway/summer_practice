@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Приемная комиссия</title>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="/javascripts/alert.js"></script>
+    
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <div class="container-fluid">
+        <div class="row">
+            <% include menu.ejs %>
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="media research-item elem">
+                                <img src="/images/research.svg" width="25px" height="25px" class="align-self-center" >
+                                <img src="/images/pause.svg"  height="25px" class="align-self-center" style="margin-left:3px;">
+                                <div class="media-body" style="margin-left:10px;">Search student</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="login elem" style="text-align:center;">Log in</p>
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="col-md-12">
+                            <!-- faculties -->
+                            <div class="row elem main-body" id="facul-box">
+                                <div class="row">
+                                    <div class="col-md-12" style="width: 400px">
+                                        <form name="showFacul" method="POST" action="/facul">
+                                            <div class="form-row" style="width: 400px">
+                                                <div class="form-group col-md-8">
+                                                    <select class="form-control" name="facul">
+                                                        <option>Факультет</option>
+                                                        <option>1-ФКТИ</option>
+                                                        <option>2-ФИБС</option>
+                                                        <option>3-ФЭЛ</option>
+                                                        <option>4-ФЭА</option>
+                                                        <option>5-ФРТ</option>
+                                                        <option>6-ГФ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4"">
+                                                    <input class="btn btn-outline-secondary form-control" type="submit" placeholder="Выбрать">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="my-table" style="margin: 0px 35px 0px 0px; height: 500px; width: 100%">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Ф</th>
+                                                        <th scope="col">И</th>
+                                                        <th scope="col">О</th>
+                                                        <th scope="col">Д/р</th>
+                                                        <th scope="col">Фак-т</th>
+                                                        <th scope="col">Направление</th>
+                                                        <th scope="col">ЕГЭ 1</th>
+                                                        <th scope="col">ЕГЭ 2</th>
+                                                        <th scope="col">ЕГЭ 3</th>
+                                                        <th scope="col">ЕГЭ итог</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% students.forEach(function(student) { %>
+                                                        <tr>
+                                                            <th scope="row"> <%= student.id %> </th>
+                                                            <td>
+                                                                <%= student.surname %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.name %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.midname %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.b_day %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.facul %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.specialty %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.mark1 %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.mark2 %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.mark3 %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.ege_full %>
+                                                            </td>
+                                                        </tr>
+                                                    <% }); %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+.container-fluid{
+    background-color: #E5E5E5;
+    font-family: "Apple Color Emoji";
+    color: #6D6C6C;
+    font-size: 18px;
+}
+
+.elem {
+    background-color: #E5E5E5;
+    border: 1px solid #A0A0A0;
+    border-radius: 10px;
+}
+
+.menu {
+    height: 720px;
+    padding: 0px 15px;
+    margin:0px;
+    background-color: white;
+    border-left: 0;
+}
+
+.nav-item {
+    line-height: 40px;
+    font-size: 21px;
+    font-weight: bold;
+    padding-left: 15px;
+    background-color: #E5E5E5;
+    margin: 1em 0 0; 
+    border-top: 1px solid #A0A0A0;
+    border-bottom: 1px solid #A0A0A0;
+}
+
+.brand-image {
+    text-align: center;
+    background-color: white;
+    padding: 0px;
+    margin: 5px 0 0 0;
+    border: 0;
+}
+
+.nav-link {
+    color: #6D6C6C;
+}
+
+.lead {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.work-space {
+    background-color: white;
+    margin: 10px;
+}
+
+.research-item, .login {
+    max-height: 45px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.main-body {
+    height: 630px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid #A0A0A0;
+    border-radius: 10px;
+    color: #6D6C6C;
+} 
+
+.text {
+    padding: 10px 40px;
+    margin-top: 10px;
+}
+
+strong {
+    color:#05336e;
+}
+
+.active {
+    border: 2px solid #05336e;
+}
+
+.btn-lg {
+    margin: 15px 0px 15px 35px;
+    width: 300px;
+}
+
+form {
+    width: 300px; 
+    margin: 15px 5px;
+}
+
+th, td {
+    text-align: center
+}
+
+.my-table {
+    margin-top: 15px;
+    /* height: 500px; */
+    overflow-x: scroll;
+}
+
+.change {
+    display: none; 
+    margin-top:5px
+}
